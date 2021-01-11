@@ -20,6 +20,7 @@
     @else
         Hi guest!
     @endauth
+
 </body>
 
 </html>

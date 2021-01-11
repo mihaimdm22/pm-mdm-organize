@@ -19,12 +19,14 @@ class CreateCommentsTable extends Migration
             $table->foreignId('user_id');
             $table->foreign('user_id')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->foreignId('task_id');
             $table->foreign('task_id')
                 ->references('id')
-                ->on('tasks');
+                ->on('tasks')
+                ->onDelete('cascade');
 
             $table->text('text');
             $table->timestamps();
