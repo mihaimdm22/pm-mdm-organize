@@ -24,12 +24,12 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word,
+            'name'        => $this->faker->word,
             'description' => $this->faker->paragraph,
-            'status' => $this->faker->randomElement(['to_do', 'in_progress', 'done']),
-            'attachment' => $this->faker->file($sourceDir = 'public/storage/files/default', $targetDir = 'public/storage/files'),
+            'status'      => $this->faker->randomElement(['to_do', 'in_progress', 'done']),
+            'attachment'  => $this->faker->file($sourceDir = 'public/storage/files/default', $targetDir = 'public/storage/files'),
             'assigned_to' => User::factory(),
-            'project_id' => Project::factory(),
+            'project_id'  => Project::factory(),
         ];
     }
 }

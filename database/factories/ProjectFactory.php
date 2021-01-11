@@ -22,10 +22,10 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->company,
-            'description' => $this->faker->paragraph,
-            'start_date' => $this->faker->date,
-            'duration' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 10),
+            'name'          => $this->faker->company,
+            'description'   => $this->faker->paragraph,
+            'start_date'    => $this->faker->date,
+            'duration'      => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 10),
         ];
     }
 }
