@@ -123,7 +123,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Create</button>
     </div>
 </form>
 @endsection

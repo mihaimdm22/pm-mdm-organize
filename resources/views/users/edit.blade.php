@@ -23,6 +23,7 @@
                 class="form-control @error('first_name') is-invalid @enderror "
                 placeholder="John"
                 name="first_name"
+                id="first_name"
                 value="{{old('first_name', $user->first_name)}}" />
             @error('first_name')
             <div class="invalid-feedback">{{$errors->first('first_name')}}</div>
