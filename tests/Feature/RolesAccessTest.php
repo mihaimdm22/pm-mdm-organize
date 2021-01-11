@@ -10,7 +10,7 @@ class RolesAccessTest extends TestCase
     /** @test */
     public function user_must_login_to_access_to_admin_dashboard()
     {
-        $this->get(route('admin.dashboard'))
+        $this->get(route('admin.home'))
             ->assertRedirect('login');
     }
 
@@ -25,7 +25,7 @@ class RolesAccessTest extends TestCase
         $this->actingAs($adminUser);
 
         //When
-        $response = $this->get(route('admin.dashboard'));
+        $response = $this->get(route('admin.home'));
 
         //Then
         $response->assertOk();
@@ -42,7 +42,7 @@ class RolesAccessTest extends TestCase
         $this->actingAs($user);
 
         //When
-        $response = $this->get(route('admin.dashboard'));
+        $response = $this->get(route('admin.home'));
 
         //Then
         $response->assertForbidden();
@@ -59,7 +59,7 @@ class RolesAccessTest extends TestCase
         $this->actingAs($user);
 
         //When
-        $response = $this->get(route('home'));
+        $response = $this->get(route('tasks.index'));
 
         //Then
         $response->assertOk();
