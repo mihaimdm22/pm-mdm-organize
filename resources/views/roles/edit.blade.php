@@ -13,44 +13,43 @@
     </div>
 </div>
 
-
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-    </div>
-@endif
-
-
-{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id]]) !!}
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Name:</strong>
-            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+<form method="POST" action="{{ route('roles.update', ['role' => $role]) }}">
+    @csrf
+    @method('PUT')
+    <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input
+                type="text"
+                class="form-control @error('name') is-invalid @enderror "
+                placeholder="Admin"
+                name="name"
+                id="name"
+                value="{{old('name', $role->name)}}" />
+            @error('name')
+            <div class="invalid-feedback">{{$errors->first('name')}}</div>
+            @enderror
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Permission:</strong>
-            <br/>
+    <div class="form-group row">
+        <label for="permissions" class="col-sm-2 col-form-label">Permissions</label>
+        <div id="permissions" class="col-sm-10">
             @foreach($permission as $value)
-                <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-                {{ $value->name }}</label>
-            <br/>
+            <div class="form-group form-check">
+                <input
+                    type="checkbox"
+                    name="permission[]"
+                    class="form-check-input name"
+                    id="perm-{{ $value->id }}"
+                    value="{{ $value->id }}"
+                    @if(in_array($value->id, $rolePermissions)) checked @endif>
+                <label for="perm-{{ $value->id }}" class="form-check-label">{{ $value->name }}</label>
+            </div>
             @endforeach
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group row">
+        <button type="submit" class="btn btn-primary">Save</button>
     </div>
-</div>
-{!! Form::close() !!}
-
-
+</form>
 @endsection
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
