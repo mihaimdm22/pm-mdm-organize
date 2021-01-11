@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in {{ Auth::user()->first_name }} {{ auth()->user()->last_name }}!
+                    <h1>This will be the admin home dashboard!</h1>
                 </div>
             </div>
         </div>

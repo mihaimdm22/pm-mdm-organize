@@ -54,9 +54,20 @@
                         </li>
                         @endif
                         @else
+                        @role('user')
+                        <li><a class="nav-link" href="{{ route('tasks.index') }}">My Tasks</a></li>
+                        <li><a class="nav-link" href="{{ route('comments.index') }}">My Comments</a></li>
+                        @endrole
+
+                        @role('admin')
+                        <li><a class="nav-link" href="{{ route('admin.home') }}">Dashboard</a></li>
                         <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
                         <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Roles</a></li>
                         <li><a class="nav-link" href="{{ route('projects.index') }}">Manage Projects</a></li>
+                        <li><a class="nav-link" href="{{ route('tasks.index') }}">Manage Tasks</a></li>
+                        <li><a class="nav-link" href="{{ route('comments.index') }}">Manage Comments</a></li>
+                        @endrole
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

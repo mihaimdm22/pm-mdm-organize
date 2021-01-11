@@ -29,11 +29,11 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     public function redirectPath()
     {
-        // if (auth()->user()->is_admin) {
-        //     return route('home');
-        // }
+        if (auth()->user()->hasRole('admin')) {
+            return route('users.index');
+        }
 
-        return route('home');
+        return route('tasks.index');
     }
 
     /**

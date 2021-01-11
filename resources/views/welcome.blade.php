@@ -1,26 +1,12 @@
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
+@section('content')
+<h1><i class="fas fa-heart fa-fw"></i>Laravel 8 with Bootstrap 4 and FontAwesome 5 Test</h1>
 
-    <title>{{ config('app.name', 'MDM-Organizer') }}</title>
+@auth
+<h2>Hi, {{ Auth::user()->username }} !</h2>
+@else
+<h2>Hi guest!</h2>
+@endauth
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-
-<body>
-    <h1><i class="fas fa-heart fa-fw"></i>Laravel 8 with Bootstrap 4 and FontAwesome 5 Test</h1>
-
-    @auth
-        Hi, {{ Auth::user()->username }} !
-    @else
-        Hi guest!
-    @endauth
-
-</body>
-
-</html>
+@endsection
