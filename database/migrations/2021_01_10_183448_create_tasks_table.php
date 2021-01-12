@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->enum('status', ['to_do', 'in_progress', 'done']);
-            $table->binary('attachment')->nullable();
+            $table->string('attachment')->nullable();
 
             $table->foreignId('assigned_to');
             $table->foreign('assigned_to')

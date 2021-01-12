@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             TaskSeeder::class,
             CommentSeeder::class,
-            AdminUserSeeder::class,
             RolesAndPermissionsSeeder::class,
+            AdminUserSeeder::class,
         ]);
     }
 }

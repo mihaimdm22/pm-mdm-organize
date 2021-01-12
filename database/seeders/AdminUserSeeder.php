@@ -23,7 +23,7 @@ class AdminUserSeeder extends Seeder
                 'email' => 'john@example.com',
         ]);
 
-        $role = Role::create(['name' => 'Admin']);
+        $role = Role::create(['name' => 'admin']);
 
         $permissions = Permission::pluck('id','id')->all();
 

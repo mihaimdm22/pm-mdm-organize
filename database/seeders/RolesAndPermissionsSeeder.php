@@ -16,10 +16,15 @@ class RolesAndPermissionsSeeder extends Seeder
      */
     public function run()
     {
+        Role::create(['name' => 'user']);
+        $users = User::all();
+        foreach ($users as $user) {
+            $user->assignRole('user');
+        }
         // Reset cached roles and permissions
         // app()['cache']->forget('spatie.permission.cache');
 
-        Role::create(['name' => 'User']);
+        // Role::create(['name' => 'User']);
         // $user = User::factory()->create();
         // $user->assignRole('user');
 
