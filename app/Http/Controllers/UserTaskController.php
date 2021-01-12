@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class UserTaskController extends Controller
@@ -27,7 +28,9 @@ class UserTaskController extends Controller
      */
     public function show(Task $task)
     {
-        return view('tasks.user-show', compact('task'));
+        $statuses = ['to_do', 'in_progress', 'done'];
+
+        return view('tasks.user-show', compact('task', 'statuses'));
     }
 
     /**
@@ -45,7 +48,31 @@ class UserTaskController extends Controller
 
         $task->update($request->all());
 
-        return redirect()->route('user.tasks.index')
+        return redirect()->route('user.tasks.show', $task)
             ->with('success', 'Task updated successfully');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, Task $task)
+    {
+        $this->validate($request, [
+            // 'user_id' => 'required',
+            // 'task_id' => 'required',
+            'text' => 'required'
+        ]);
+
+        Comment::create([
+            'text' => $request->text,
+            'user_id' => auth()->user()->id,
+            'task_id' => $task->id
+        ]);
+
+        return redirect()->back()
+            ->with('success', 'Comment created successfully');
     }
 }
