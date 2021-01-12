@@ -8,7 +8,7 @@
                 <h2>Add New Project</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('projects.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('tasks.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Create</button>
         </div>
     </form>
 @endsection
