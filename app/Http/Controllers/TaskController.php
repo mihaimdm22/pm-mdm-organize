@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -14,7 +16,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::latest()->paginate(5);
+        return view('tasks.index', compact('tasks'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +28,11 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $statuses = ['to_do', 'in_progress', 'done'];
+        $users = User::all();
+        $projects = Project::all();
+
+        return view('tasks.create', compact('statuses','users', 'projects'));
     }
 
     /**
@@ -35,7 +43,18 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'status' => 'required',
+            'assigned_to' => 'required',
+            'project_id' => 'required'
+        ]);
+
+        Task::create($request->all());
+
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task created successfully');
     }
 
     /**
@@ -46,7 +65,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -57,7 +76,11 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        $statuses = ['to_do', 'in_progress', 'done'];
+        $users = User::all();
+        $projects = Project::all();
+
+        return view('tasks.edit', compact('task', 'statuses','users', 'projects'));
     }
 
     /**
@@ -69,7 +92,18 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'status' => 'required',
+            'assigned_to' => 'required',
+            'project_id' => 'required'
+        ]);
+
+        $task->update($request->all());
+
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task updated successfully');
     }
 
     /**
@@ -82,4 +116,6 @@ class TaskController extends Controller
     {
         //
     }
+
+
 }
