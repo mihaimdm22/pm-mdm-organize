@@ -55,8 +55,8 @@
                         @endif
                         @else
                         @role('user')
-                        <li><a class="nav-link" href="{{ route('tasks.index') }}">My Tasks</a></li>
-                        <li><a class="nav-link" href="{{ route('comments.index') }}">My Comments</a></li>
+                        <li><a class="nav-link" href="{{ route('my-tasks.index') }}">My Tasks</a></li>
+                        {{-- <li><a class="nav-link" href="{{ route('comments.index') }}">My Comments</a></li> --}}
                         @endrole
 
                         @role('admin')

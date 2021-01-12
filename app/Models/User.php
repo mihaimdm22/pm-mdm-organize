@@ -44,6 +44,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the tasks for the user.
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'assigned_to');
+    }
+
+    /**
+     * Get the comments for the user.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function path()
+    {
+        return route('users.show', $this);
+    }
+
     // public function roles() {
     //     return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id');
     // }

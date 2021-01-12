@@ -19,6 +19,7 @@ class ProjectController extends Controller
         // $this->middleware('permission:project-edit', ['only' => ['edit', 'update']]);
         // $this->middleware('permission:project-delete', ['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *

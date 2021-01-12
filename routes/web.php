@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\MyTaskController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,7 @@ Auth::routes();
 Route::group([
     'middleware' => ['auth']
 ], function() {
-    Route::resource('tasks', TaskController::class);
-    Route::resource('comments', CommentController::class);
+    Route::get('/my-tasks', [App\Http\Controllers\MyTaskController::class, 'index'])->name('my-tasks.index');
 });
 
 Route::group([
@@ -43,6 +43,8 @@ Route::group([
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('projects', ProjectController::class);
+    Route::resource('tasks', TaskController::class);
+    Route::resource('comments', CommentController::class);
 });
 
 // Route::group(['middleware' => ['auth']], function() {
