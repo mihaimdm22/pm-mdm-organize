@@ -30,10 +30,10 @@ class LoginController extends Controller
     public function redirectPath()
     {
         if (auth()->user()->hasRole('admin')) {
-            return route('users.index');
+            return route('admin.home');
         }
 
-        return route('tasks.index');
+        return route('user.tasks.index');
     }
 
     /**
