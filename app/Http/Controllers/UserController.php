@@ -19,9 +19,46 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id', 'DESC')->paginate(5);
-        return view('users.index', compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $users = new User;
+
+        //defaults
+        $queries = [
+            'sort_by' => 'first_name',
+            'sort' => 'asc',
+        ];
+
+        $filters = [
+            'role',
+        ];
+
+        // foreach ($filters as $filter) {
+        //     if(request()->has($filter)) {
+        //         $users = $users->where('role', request('role'));
+        //         $queries[$filter] = request($filter);
+        //     }
+        // }
+
+        // if(request()->has('sort_by')) {
+        //     $queries['sort_by'] = request('sort_by');
+        // }
+
+        // if(request()->has('sort')) {
+        //     $queries['sort'] = request('sort');
+        // }
+
+        // $users = $users->orderBy($queries['sort_by'], $queries['sort']);
+
+        if(request()->has('role')) {
+            if(is_array(request('role'))) {
+                $users = User::role(request('role')[0])->role(request('role')[1])->get();
+            } else {
+                $users = User::role(request('role'))->get();
+            }
+        } else {
+            $users = $users->paginate(5)->appends($queries);
+        }
+
+        return view('users.index', compact('users'));
     }
 
     /**

@@ -18,6 +18,69 @@
 </div>
 @endif
 
+<div>
+    <div class="filters">
+        Filter role:
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => 'admin',
+            'sort_by' => request('sort_by'),
+            'sort' => request('sort')
+            ]) }}">Admin</a>
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => 'user',
+            'sort_by' => request('sort_by'),
+            'sort' => request('sort')
+            ]) }}">User</a>
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => ['admin','user'],
+            'sort_by' => request('sort_by'),
+            'sort' => request('sort')
+            ]) }}">Both</a>
+
+        <br>
+
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'sort_by' => request('sort_by'),
+            'sort' => request('sort')
+            ]) }}">Reset filter</a>
+    </div>
+
+    <div class="sorts">
+        Sort by first name:
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => request('role'),
+            'sort_by' => 'first_name',
+            'sort' => 'asc'
+            ]) }}">Asc</a>
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => request('role'),
+            'sort_by' => 'first_name',
+            'sort' => 'desc'
+            ]) }}">Desc</a>
+
+        <br>
+
+        Sort by email:
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => request('role'),
+            'sort_by' => 'email',
+            'sort' => 'asc'
+            ]) }}">Asc</a>
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => request('role'),
+            'sort_by' => 'email',
+            'sort' => 'desc'
+            ]) }}">Desc</a>
+
+        <br>
+
+        <a class="btn btn-sm btn-outline-dark" href="{{ route('users.index', [
+            'role' => request('role')
+            ]) }}">Reset sort</a>
+
+    </div>
+</div>
+
 <table class="table table-bordered">
     <tr>
         <th>No</th>
@@ -28,7 +91,7 @@
         <th>Roles</th>
         <th width="280px">Action</th>
     </tr>
-    @foreach ($data as $key => $user)
+    @foreach ($users as $key => $user)
     <tr>
         <td>{{ $user->id }}</td>
         <td>{{ $user->first_name }}</td>
@@ -56,6 +119,7 @@
     </tr>
     @endforeach
 </table>
-
-{!! $data->render() !!}
+@if(!request()->has('role'))
+{!! $users->render() !!}
+@endif
 @endsection
