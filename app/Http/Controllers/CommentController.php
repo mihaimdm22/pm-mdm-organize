@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\User;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -14,7 +16,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::latest()->paginate(5);
+        return view('comments.index', compact('comments'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +28,10 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $tasks = Task::all();
+
+        return view('comments.create', compact('users', 'tasks'));
     }
 
     /**
@@ -35,7 +42,16 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'user_id' => 'required',
+            'task_id' => 'required',
+            'text' => 'required'
+        ]);
+
+        Comment::create($request->all());
+
+        return redirect()->route('comments.index')
+            ->with('success', 'Comment created successfully');
     }
 
     /**
@@ -46,7 +62,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        return view('comments.show', compact('comment'));
     }
 
     /**
@@ -57,7 +73,10 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        $users = User::all();
+        $tasks = Task::all();
+
+        return view('comments.edit', compact('comment', 'users', 'tasks'));
     }
 
     /**
@@ -69,7 +88,16 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $this->validate($request, [
+            'user_id' => 'required',
+            'task_id' => 'required',
+            'text' => 'required'
+        ]);
+
+        $comment->update($request->all());
+
+        return redirect()->route('comments.index')
+            ->with('success', 'Comment updated successfully');
     }
 
     /**
@@ -80,6 +108,9 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+
+        return redirect()->route('comments.index')
+            ->with('success', 'Comment deleted successfully');
     }
 }
