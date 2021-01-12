@@ -49,6 +49,12 @@ class Kernel extends HttpKernel
             'auth',
             'role:admin'
         ],
+
+        'user' => [
+            'web',
+            'auth',
+            'role:user'
+        ],
     ];
 
     /**

@@ -7,7 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\MyTaskController;
+use App\Http\Controllers\UserTaskController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -27,15 +27,17 @@ Route::get('/', function () { return view('welcome');} )->name('home');
 Auth::routes();
 
 Route::group([
-    'middleware' => ['auth']
+    'middleware' => ['user']
 ], function() {
-    Route::get('/my-tasks', [App\Http\Controllers\MyTaskController::class, 'index'])->name('my-tasks.index');
+    Route::get('/tasks', [App\Http\Controllers\UserTaskController::class, 'index'])->name('user.tasks.index');
+    Route::get('/tasks/{task}', [App\Http\Controllers\UserTaskController::class, 'show'])->name('user.tasks.show');
+    Route::put('/tasks/{task}', [App\Http\Controllers\UserTaskController::class, 'update']);
 });
 
 Route::group([
     'prefix' => 'admin',
     // 'as' => 'admin.',
-    'middleware' => ['auth','admin']
+    'middleware' => ['admin']
 ], function() {
 
     Route::get('/', [AdminController::class, 'index'])->name('admin.home');
