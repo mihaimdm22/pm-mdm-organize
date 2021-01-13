@@ -31,22 +31,22 @@ class UserController extends Controller
             'role',
         ];
 
-        // foreach ($filters as $filter) {
-        //     if(request()->has($filter)) {
-        //         $users = $users->where('role', request('role'));
-        //         $queries[$filter] = request($filter);
-        //     }
-        // }
+        foreach ($filters as $filter) {
+            if(request()->has($filter)) {
+                $users = $users->where('role', request('role'));
+                $queries[$filter] = request($filter);
+            }
+        }
 
-        // if(request()->has('sort_by')) {
-        //     $queries['sort_by'] = request('sort_by');
-        // }
+        if(request()->has('sort_by')) {
+            $queries['sort_by'] = request('sort_by');
+        }
 
-        // if(request()->has('sort')) {
-        //     $queries['sort'] = request('sort');
-        // }
+        if(request()->has('sort')) {
+            $queries['sort'] = request('sort');
+        }
 
-        // $users = $users->orderBy($queries['sort_by'], $queries['sort']);
+        $users = $users->orderBy($queries['sort_by'], $queries['sort']);
 
         if(request()->has('role')) {
             if(is_array(request('role'))) {
@@ -69,7 +69,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name', 'name')->all();
-        return view('users.create', compact('roles'));
+        return view('users.create-edit', compact('roles'));
     }
 
     /**
@@ -132,7 +132,7 @@ class UserController extends Controller
         $roles = Role::pluck('name', 'name')->all();
         $userRole = $user->roles->pluck('name', 'name')->all();
 
-        return view('users.edit', compact('user', 'roles', 'userRole'));
+        return view('users.create-edit', compact('user', 'roles', 'userRole'));
     }
 
     /**
