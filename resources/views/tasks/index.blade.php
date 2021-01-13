@@ -38,7 +38,12 @@
         <td>{{ $task->name }}</td>
         <td>{{ \Illuminate\Support\Str::limit( $task->description, 25 ) }}</td>
         <td><span class="badge badge-pill badge-{{ $task->badge() }} p-2">{{ $task->status }}</span></td>
-        <td><a href="/storage/files/{{ $task->attachment }}" download>Download File</a></td>
+        <td>
+            @if(is_null($task->attachment))
+            No file
+            @else
+            <a a href="{{ Storage::url($task->attachment)}}" download>Download</a></td>
+            @endif
         <td><a href="{{ route('users.show', $task->assigned_to) }}">{{ $task->user->username }}</a></td>
         <td><a href="{{ route('projects.show', $task->project_id) }}">{{ $task->project->name }}</a></td>
         <td>

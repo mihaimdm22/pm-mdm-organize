@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <form method="POST" action="{{ route('tasks.update', ['task' => $task]) }}">
+    <form method="POST" action="{{ route('tasks.update', ['task' => $task]) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group row">

@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class TaskController extends Controller
 {
@@ -47,11 +48,21 @@ class TaskController extends Controller
             'name' => 'required',
             'description' => 'required',
             'status' => 'required',
+            'attachment' => 'nullable|mimes:txt,jpeg,png,jpg,zip,pdf|max:2048',
             'assigned_to' => 'required',
             'project_id' => 'required'
         ]);
 
-        Task::create($request->all());
+        $input = $request->all();
+
+        if ($request->hasFile('attachment')) {
+            $filepath = $request->file('attachment')->store('attachments');
+            if ($filepath) {
+                $input['attachment'] = $filepath;
+            }
+        }
+
+        Task::create($input);
 
         return redirect()->route('tasks.index')
             ->with('success', 'Task created successfully');
@@ -96,11 +107,21 @@ class TaskController extends Controller
             'name' => 'required',
             'description' => 'required',
             'status' => 'required',
+            'attachment' => 'nullable|mimes:txt,jpeg,png,jpg,zip,pdf|max:2048',
             'assigned_to' => 'required',
             'project_id' => 'required'
         ]);
 
-        $task->update($request->all());
+        $input = $request->all();
+
+        if ($request->hasFile('attachment')) {
+            $filepath = $request->file('attachment')->store('attachments');
+            if ($filepath) {
+                $input['attachment'] = $filepath;
+            }
+        }
+
+        $task->update($input);
 
         return redirect()->route('tasks.index')
             ->with('success', 'Task updated successfully');

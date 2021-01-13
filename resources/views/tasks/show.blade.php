@@ -34,7 +34,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Attachment:</strong>
-                <a href="/storage/files/{{ $task->attachment }}" download>{{ $task->attachment }}</a>
+                @if(is_null($task->attachment))
+                No file
+                @else
+                <a a href="{{ Storage::url($task->attachment)}}" download>Download</a></td>
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

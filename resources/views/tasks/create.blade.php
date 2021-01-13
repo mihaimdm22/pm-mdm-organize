@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <form method="POST" action="{{ route('tasks.store') }}">
+    <form method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Name</label>
