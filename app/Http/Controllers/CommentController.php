@@ -16,7 +16,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::latest()->paginate(5);
+        $comments = Comment::latest()->paginate(10);
         return view('comments.index', compact('comments'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -73,10 +73,10 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        $users = User::all();
-        $tasks = Task::all();
+        // $users = User::all();
+        // $tasks = Task::all();
 
-        return view('comments.edit', compact('comment', 'users', 'tasks'));
+        // return view('comments.edit', compact('comment', 'users', 'tasks'));
     }
 
     /**
@@ -88,16 +88,16 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        $this->validate($request, [
-            'user_id' => 'required',
-            'task_id' => 'required',
-            'text' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'user_id' => 'required',
+        //     'task_id' => 'required',
+        //     'text' => 'required'
+        // ]);
 
-        $comment->update($request->all());
+        // $comment->update($request->all());
 
-        return redirect()->route('comments.index')
-            ->with('success', 'Comment updated successfully');
+        // return redirect()->route('comments.index')
+        //     ->with('success', 'Comment updated successfully');
     }
 
     /**
