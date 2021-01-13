@@ -68,10 +68,10 @@
                 <div class="space-y-1">
                     <!-- Current: "bg-gray-200 text-gray-900", Default: "text-gray-700 hover:text-gray-900 hover:bg-gray-50" -->
                     <a href="{{ route('admin.home') }}"
-                        class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class="{{ strpos(Request::path(), 'home') !== false  ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500" -->
                         <!-- Heroicon name: home -->
-                        <svg class="text-gray-500 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        <svg class="{{ strpos(Request::path(), 'home') !== false  ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500' }} mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -80,9 +80,9 @@
                     </a>
 
                     <a href="{{ route('users.index') }}"
-                        class="text-gray-700 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class="{{ strpos(Request::path(), 'users') !== false  ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: users -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                        <svg class="{{ strpos(Request::path(), 'users') !== false  ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500' }} mr-3 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -93,9 +93,9 @@
                     </a>
 
                     <a href="{{ route('roles.index') }}"
-                        class="text-gray-700 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class="{{ strpos(Request::path(), 'roles') !== false  ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: cog -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                        <svg class="{{ strpos(Request::path(), 'roles') !== false  ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500' }} mr-3 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -108,9 +108,9 @@
                     </a>
 
                     <a href="{{ route('projects.index') }}"
-                        class="text-gray-700 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class="{{ strpos(Request::path(), 'projects') !== false  ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: folder -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                        <svg class="{{ strpos(Request::path(), 'projects') !== false  ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500' }} mr-3 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -120,9 +120,9 @@
                     </a>
 
                     <a href="{{ route('tasks.index') }}"
-                        class="text-gray-700 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class="{{ strpos(Request::path(), 'tasks') !== false  ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: clipboard-list -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                        <svg class="{{ strpos(Request::path(), 'tasks') !== false  ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500' }} mr-3 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -133,9 +133,9 @@
                     </a>
 
                     <a href="{{ route('comments.index') }}"
-                        class="text-gray-700 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class="{{ strpos(Request::path(), 'comments') !== false  ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: annotation -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
+                        <svg class="{{ strpos(Request::path(), 'comments') !== false  ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500' }} mr-3 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
