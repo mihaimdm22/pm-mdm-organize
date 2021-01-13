@@ -25,7 +25,7 @@ class UserFactory extends Factory
         return [
             'first_name'        => $this->faker->firstName,
             'last_name'         => $this->faker->lastName,
-            'avatar'            => $this->faker->image('public/storage/images', 640, 480, null, false),
+            // 'avatar'            => $this->faker->image('public/storage/images', 640, 480, null, false),
             'username'          => $this->faker->userName,
             'email'             => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),

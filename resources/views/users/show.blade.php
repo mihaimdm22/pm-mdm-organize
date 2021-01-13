@@ -33,6 +33,12 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>Avatar:</strong>
+            <img class="rounded-circle" src="{{ Storage::url($user->avatar)}}" alt="{{ $user->avatar }}" width="50px" height="50px">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <strong>Email:</strong>
             {{ $user->email }}
         </div>

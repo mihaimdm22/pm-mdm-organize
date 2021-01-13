@@ -84,6 +84,7 @@
 <table class="table table-bordered">
     <tr>
         <th>No</th>
+        <th>Avatar</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Username</th>
@@ -94,6 +95,9 @@
     @foreach ($users as $key => $user)
     <tr>
         <td>{{ $user->id }}</td>
+        <td>
+            <img class="rounded-circle" src="{{ Storage::url($user->avatar)}}" alt="{{ $user->avatar }}" width="40px" height="40px">
+        </td>
         <td>{{ $user->first_name }}</td>
         <td>{{ $user->last_name }}</td>
         <td>{{ $user->username }}</td>

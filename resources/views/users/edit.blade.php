@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<form method="POST" action="{{ route('users.update', ['user' => $user]) }}">
+<form method="POST" action="{{ route('users.update', ['user' => $user]) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-group row">
@@ -57,6 +57,20 @@
                 value="{{old('username', $user->username)}}" />
             @error('username')
                 <div class="invalid-feedback">{{$errors->first('username')}}</div>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="avatar" class="col-sm-2 col-form-label">Avatar</label>
+        <div class="col-sm-10">
+            <input
+                type="file"
+                class="form-control-file @error('avatar') is-invalid @enderror "
+                name="avatar"
+                id="avatar"
+                value="Upload Avatar" />
+            @error('avatar')
+                <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
     </div>

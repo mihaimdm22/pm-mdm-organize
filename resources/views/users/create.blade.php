@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<form method="POST" action="{{ route('users.store') }}">
+<form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group row">
         <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
@@ -57,6 +57,20 @@
                 value="{{old('username')}}" />
             @error('username')
                 <div class="invalid-feedback">{{$errors->first('username')}}</div>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="avatar" class="col-sm-2 col-form-label">Avatar</label>
+        <div class="col-sm-10">
+            <input
+                type="file"
+                class="form-control-file @error('avatar') is-invalid @enderror "
+                name="avatar"
+                id="avatar"
+                value="{{old('avatar')}}" />
+            @error('avatar')
+                <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
     </div>
@@ -114,7 +128,7 @@
                 id="roles"
                 multiple>
                 @foreach ($roles as $role)
-                <option>{{$role}}</option>
+                <option @if(old('roles') == $role) selected @endif>{{$role}}</option>
                 @endforeach
             </select>
             @error('roles')

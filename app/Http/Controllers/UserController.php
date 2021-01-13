@@ -84,6 +84,7 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'username' => 'required|unique:users',
+            'avatar' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:50000',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
             'confirm-password' => 'required|same:password',
@@ -92,6 +93,13 @@ class UserController extends Controller
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
+
+        if ($request->hasFile('avatar')) {
+            $filepath = $request->file('avatar')->storeAs('avatars', $request->file('avatar')->getClientOriginalName());
+            if ($filepath) {
+                $input['avatar'] = $filepath;
+            }
+        }
 
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
@@ -140,6 +148,7 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'username' => 'required|unique:users,username,'.$id,
+            'avatar' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:50000',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'required|same:confirm-password',
             'confirm-password' => 'required|same:password',
@@ -151,6 +160,13 @@ class UserController extends Controller
             $input['password'] = Hash::make($input['password']);
         } else {
             $input = Arr::except($input, array('password'));
+        }
+
+        if ($request->hasFile('avatar')) {
+            $filepath = $request->file('avatar')->storeAs('avatars', $request->file('avatar')->getClientOriginalName());
+            if ($filepath) {
+                $input['avatar'] = $filepath;
+            }
         }
 
         $user = User::find($id);

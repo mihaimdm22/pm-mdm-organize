@@ -27,7 +27,7 @@ class TaskFactory extends Factory
             'name'        => $this->faker->word,
             'description' => $this->faker->paragraph,
             'status'      => $this->faker->randomElement(['to_do', 'in_progress', 'done']),
-            'attachment'  => $this->faker->file($sourceDir = 'public/storage/files/default', $targetDir = 'public/storage/files'),
+            // 'attachment'  => $this->faker->file($sourceDir = 'public/storage/files/default', $targetDir = 'public/storage/files'),
             'assigned_to' => User::factory(),
             'project_id'  => Project::factory(),
         ];
