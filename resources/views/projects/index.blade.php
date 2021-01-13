@@ -15,7 +15,6 @@
         </a>
     </div>
 </div>
-{{-- <td>{{ \Illuminate\Support\Str::limit( $project->description, 25 ) }}</td> --}}
 
 <!-- Projects table (small breakpoint and up) -->
 <div class="flex flex-col m-3">

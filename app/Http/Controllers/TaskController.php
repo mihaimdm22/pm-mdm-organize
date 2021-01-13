@@ -17,7 +17,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::latest()->paginate(5);
+        $tasks = Task::orderBy('updated_at', 'DESC')->paginate(5);
         return view('tasks.index', compact('tasks'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -33,7 +33,7 @@ class TaskController extends Controller
         $users = User::all();
         $projects = Project::all();
 
-        return view('tasks.create', compact('statuses','users', 'projects'));
+        return view('tasks.create-edit', compact('statuses','users', 'projects'));
     }
 
     /**
@@ -91,7 +91,7 @@ class TaskController extends Controller
         $users = User::all();
         $projects = Project::all();
 
-        return view('tasks.edit', compact('task', 'statuses','users', 'projects'));
+        return view('tasks.create-edit', compact('task', 'statuses','users', 'projects'));
     }
 
     /**
@@ -107,7 +107,7 @@ class TaskController extends Controller
             'name' => 'required',
             'description' => 'required',
             'status' => 'required',
-            'attachment' => 'nullable|mimes:txt,jpeg,png,jpg,zip,pdf|max:2048',
+            'attachment' => 'nullable|mimes:txt,jpeg,png,jpg,zip,pdf|max:50048',
             'assigned_to' => 'required',
             'project_id' => 'required'
         ]);

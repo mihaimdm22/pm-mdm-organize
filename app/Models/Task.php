@@ -51,19 +51,19 @@ class Task extends Model
     {
         switch($this->status) {
             case('to_do'):
-                return 'danger';
+                return 'red';
                 break;
 
             case('in_progress'):
-                return 'warning';
+                return 'yellow';
                 break;
 
             case('done'):
-                return 'success';
+                return 'green';
                 break;
 
             default:
-                return 'light';
+                return 'grey';
         }
     }
 }
