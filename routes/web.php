@@ -49,33 +49,3 @@ Route::group([
     Route::resource('tasks', TaskController::class);
     Route::resource('comments', CommentController::class);
 });
-
-// Route::group(['middleware' => ['auth']], function() {
-//     Route::resource('roles', RoleController::class);
-//     Route::resource('users', UserController::class);
-//     Route::resource('projects', ProjectController::class);
-// });
-
-// Route::get('/admin/dashboard', function(){
-//     return 'Wellcome Admin!';
-// })->name('admin.dashboard');
-
-// Route::group([
-//     // 'prefix' => 'client',
-//     // 'as' => 'client',
-//     // 'namespace' => 'Client',
-//    'middleware' => ['auth']
-// ], function() {
-//     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// });
-
-// Route::group([
-//     'prefix' => 'admin',
-//     // 'as' => 'admin',
-//     'namespace' => 'Admin',
-//     'middleware' => ['auth', 'admin']
-// ], function() {
-//     Route::get('/home', function () { return view('welcome'); })->name('home');
-// });
-
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
