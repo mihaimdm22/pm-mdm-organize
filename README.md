@@ -29,6 +29,10 @@ Set up locally
     php artisan jwt:generate 
     php artisan storage:link
     php artisan migrate:fresh --seed
+    npm install && npm run dev
+    
+Login as admin: john@example.com
+Password: password
 
 ## License
 
