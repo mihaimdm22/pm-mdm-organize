@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
+    <div class="max-w-md w-full space-y-8 z-50">
         <div>
             <img class="mx-auto h-20 w-auto" src="{{ Storage::url('images/mdm-organizer_logo.png')}}"
                 alt="MDM Organize Logo">
