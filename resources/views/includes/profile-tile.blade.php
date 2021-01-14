@@ -37,7 +37,7 @@
         x-transition:leave-start="transform opacity-100 scale-100"
         x-transition:leave-end="transform opacity-0 scale-95">
         <div class="py-1">
-            <a href="#"
+            <a href="{{ route('user.profile') }}"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem">View profile</a>
         </div>

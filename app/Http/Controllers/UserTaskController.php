@@ -75,4 +75,11 @@ class UserTaskController extends Controller
         return redirect()->back()
             ->with('success', 'Comment created successfully');
     }
+
+    public function profile()
+    {
+        $user = auth()->user();
+
+        return view('users.profile', compact('user'));
+    }
 }

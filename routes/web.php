@@ -33,6 +33,7 @@ Route::group([
     Route::get('/tasks/{task}', [App\Http\Controllers\UserTaskController::class, 'show'])->name('user.tasks.show');
     Route::put('/tasks/{task}', [App\Http\Controllers\UserTaskController::class, 'update'])->name('user.tasks.update');
     Route::post('/tasks/{task}/comments', [App\Http\Controllers\UserTaskController::class, 'store'])->name('user.comments.store');
+    Route::get('/profile', [App\Http\Controllers\UserTaskController::class, 'profile'])->name('user.profile');
 });
 
 Route::group([
