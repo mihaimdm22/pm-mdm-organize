@@ -59,7 +59,7 @@ class RolesAccessTest extends TestCase
         $this->actingAs($user);
 
         //When
-        $response = $this->get(route('tasks.index'));
+        $response = $this->get(route('user.tasks.index'));
 
         //Then
         $response->assertOk();
