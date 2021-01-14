@@ -121,7 +121,7 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap" colspan="100%">
                                         <div class="text-center text-sm font-medium text-gray-900">
-                                            No tasks found!
+                                            No tasks assigned to you yet! Go have a beer!
                                         </div>
                                     </td>
                                 </tr>
