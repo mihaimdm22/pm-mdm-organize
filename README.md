@@ -12,6 +12,8 @@ MDM Organize is an app that has two parts:
   + Manage (view, edit, delete) all resources: Users, Roles, Projects, Tasks, Comments
   + Filter and Sort for Users list
   + Dashboard view
+  
+Technologies used: laravel / laravel-permissions / tailwindcss / alpinejs
 
 ## Installation
 
@@ -25,6 +27,7 @@ Set up locally
     cp .env.example .env
     php artisan key:generate
     php artisan jwt:generate 
+    php artisan storage:link
     php artisan migrate:fresh --seed
 
 ## License
