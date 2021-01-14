@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Role;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;
@@ -65,12 +66,4 @@ class User extends Authenticatable
     {
         return route('users.show', $this);
     }
-
-    // public function roles() {
-    //     return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id');
-    // }
-
-    // public function isAdministrator() {
-    //     return $this->roles()->where('name', 'admin')->exists();
-    // }
 }

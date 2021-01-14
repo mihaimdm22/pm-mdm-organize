@@ -99,7 +99,7 @@
                                         Download
                                     </a>
                                     @else
-                                        No attachment available.
+                                    No attachment available.
                                     @endif
                                 </div>
                             </td>

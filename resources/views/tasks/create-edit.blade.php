@@ -35,7 +35,8 @@
                 <div class="md:col-span-1">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Task Information</h3>
                     <p class="mt-1 text-sm text-gray-500">
-                        Use this form to @if(isset($task)) edit @else create @endif a task for a project. Don't forget to assign it to a user and a project!
+                        Use this form to @if(isset($task)) edit @else create @endif a task for a project. Don't forget
+                        to assign it to a user and a project!
                     </p>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
@@ -51,7 +52,8 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-6">
-                            <label for="description" class="block text-sm font-medium text-gray-700">Description*</label>
+                            <label for="description"
+                                class="block text-sm font-medium text-gray-700">Description*</label>
                             <div class="mt-1">
                                 <textarea id="description" name="description" rows="5"
                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('description')  border-red-500 @enderror"
@@ -87,7 +89,8 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="assigned_to" class="block text-sm font-medium text-gray-700">Assigned To*</label>
+                            <label for="assigned_to" class="block text-sm font-medium text-gray-700">Assigned
+                                To*</label>
                             <select
                                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('assigned_to')  border-red-500 @enderror"
                                 name="assigned_to" id="assigned_to">
@@ -98,7 +101,7 @@
                                     >{{ $user->first_name }} {{ $user->last_name }} - {{ $user->username }}</option>
                                 @endforeach
                                 @if(!old('assigned_to') && !isset($task))
-                                    <option value="" disabled selected>Select a user</option>
+                                <option value="" disabled selected>Select a user</option>
                                 @endif
                             </select>
                             @error('assigned_to')
@@ -108,14 +111,16 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <label for="project_id" class="block text-sm font-medium text-gray-700">For Project*</label>
-                            <select class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('project_id')  border-red-500 @enderror" name="project_id" id="project_id">
+                            <select
+                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('project_id')  border-red-500 @enderror"
+                                name="project_id" id="project_id">
                                 @foreach ($projects as $project)
                                 <option value="{{ $project->id }}" @if(old('project_id')==$project->id) selected
                                     @elseif(isset($task) && $task->project_id == $user->id)
                                     selected @endif >{{ $project->name }}</option>
                                 @endforeach
                                 @if(!old('project_id') && !isset($task))
-                                    <option value="" disabled selected>Select a project</option>
+                                <option value="" disabled selected>Select a project</option>
                                 @endif
                             </select>
                             @error('project_id')
@@ -168,6 +173,5 @@
                 </button>
             </div>
         </div>
-    </form>
-
-    @endsection
+</form>
+@endsection

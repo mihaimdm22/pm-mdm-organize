@@ -49,7 +49,9 @@
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                     {{ $comment->user->first_name }} {{ $comment->user->last_name }}
-                                    <a href="{{ route('users.show', $comment->user->id) }}" class="text-blue-600 hover:text-blue-800"> {{ '@' . $comment->user->username }}</a>
+                                    <a href="{{ route('users.show', $comment->user->id) }}"
+                                        class="text-blue-600 hover:text-blue-800">
+                                        {{ '@' . $comment->user->username }}</a>
                                 </dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -57,7 +59,9 @@
                                     Project
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    <a href="{{ route('tasks.show', $comment->task->id) }}" class="text-blue-600 hover:text-blue-800">{{ $comment->task->name }}</a> {{ $comment->task->status }}
+                                    <a href="{{ route('tasks.show', $comment->task->id) }}"
+                                        class="text-blue-600 hover:text-blue-800">{{ $comment->task->name }}</a>
+                                    {{ $comment->task->status }}
                                 </dd>
                             </div>
                             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

@@ -93,7 +93,8 @@
                                             </path>
                                         </svg>
                                     </a>
-                                    <form class="inline" action="{{ route('comments.destroy', $comment->id) }}" method="POST">
+                                    <form class="inline" action="{{ route('comments.destroy', $comment->id) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="text-red-600 hover:text-red-900" type="submit" title="delete">

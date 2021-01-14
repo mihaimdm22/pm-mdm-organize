@@ -17,8 +17,8 @@
                                         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                                             <div class="px-4 py-5 sm:px-6 flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="{{ Storage::url($user->avatar)}}"
-                                                        alt="user-avatar">
+                                                    <img class="h-10 w-10 rounded-full"
+                                                        src="{{ Storage::url($user->avatar)}}" alt="user-avatar">
                                                 </div>
                                                 <div class="ml-4">
                                                     <div class="text-lg leading-6 font-medium text-gray-900">
@@ -31,7 +31,8 @@
                                             </div>
                                             <div class="border-t border-gray-200">
                                                 <dl>
-                                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <div
+                                                        class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                         <dt class="text-sm font-medium text-gray-500">
                                                             Full name
                                                         </dt>
@@ -39,7 +40,8 @@
                                                             {{ $user->first_name }} {{ $user->last_name }}
                                                         </dd>
                                                     </div>
-                                                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <div
+                                                        class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                         <dt class="text-sm font-medium text-gray-500">
                                                             Username
                                                         </dt>
@@ -47,7 +49,8 @@
                                                             {{ $user->username }}
                                                         </dd>
                                                     </div>
-                                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <div
+                                                        class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                         <dt class="text-sm font-medium text-gray-500">
                                                             Email address
                                                         </dt>
@@ -55,7 +58,8 @@
                                                             {{ $user->email }}
                                                         </dd>
                                                     </div>
-                                                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <div
+                                                        class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                         <dt class="text-sm font-medium text-gray-500">
                                                             Updated
                                                         </dt>
@@ -63,7 +67,8 @@
                                                             {{ $user->updated_at->diffForHumans() }}
                                                         </dd>
                                                     </div>
-                                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <div
+                                                        class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                         <dt class="text-sm font-medium text-gray-500">
                                                             Created
                                                         </dt>

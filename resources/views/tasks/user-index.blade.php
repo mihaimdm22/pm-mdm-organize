@@ -1,23 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
-{{-- @include('includes.navbar') --}}
-<!-- Page title & actions -->
 <div class="relative pt-6 pb-16 sm:pb-24">
     @include('includes.navbar')
 
     <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-10">
-
-        {{-- <div class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
-    <div class="flex-1 min-w-0">
-        <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
-            My Tasks
-        </h1>
-    </div>
-</div> --}}
-
-        <!-- tasks table (small breakpoint and up) -->
         <div class="flex flex-col m-3">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -117,11 +104,12 @@
                                             <a href="{{ route('user.tasks.show',$task->id) }}"
                                                 class="text-green-600 hover:text-green-900">
                                                 <span class="sr-only">View</span>
-                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
                                                         d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
                                                     </path>
                                                 </svg>

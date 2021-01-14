@@ -18,7 +18,8 @@
                 <div class="font-semibold leading-tight mb-2 text-lg">
                     {{ $users }} Users
                 </div>
-                <div class="flex justify-end"><a href="{{ route('users.index') }}" class="text-gray-400 hover:text-gray-600">view all</a></div>
+                <div class="flex justify-end"><a href="{{ route('users.index') }}"
+                        class="text-gray-400 hover:text-gray-600">view all</a></div>
             </div>
         </div>
         <div>
@@ -26,7 +27,8 @@
                 <div class="font-semibold leading-tight mb-2 text-lg">
                     {{ $roles }} Roles
                 </div>
-                <div class="flex justify-end"><a href="{{ route('roles.index') }}" class="text-gray-400 hover:text-gray-600">view all</a></div>
+                <div class="flex justify-end"><a href="{{ route('roles.index') }}"
+                        class="text-gray-400 hover:text-gray-600">view all</a></div>
             </div>
         </div>
         <div>
@@ -41,7 +43,8 @@
                 <div class="font-semibold leading-tight mb-2 text-lg">
                     {{ $projects }} Projects
                 </div>
-                <div class="flex justify-end"><a href="{{ route('projects.index') }}" class="text-gray-400 hover:text-gray-600">view all</a></div>
+                <div class="flex justify-end"><a href="{{ route('projects.index') }}"
+                        class="text-gray-400 hover:text-gray-600">view all</a></div>
             </div>
         </div>
         <div>
@@ -49,7 +52,8 @@
                 <div class="font-semibold leading-tight mb-2 text-lg">
                     {{ $tasks }} Tasks
                 </div>
-                <div class="flex justify-end"><a href="{{ route('tasks.index') }}" class="text-gray-400 hover:text-gray-600">view all</a></div>
+                <div class="flex justify-end"><a href="{{ route('tasks.index') }}"
+                        class="text-gray-400 hover:text-gray-600">view all</a></div>
             </div>
         </div>
         <div>
@@ -57,7 +61,8 @@
                 <div class="font-semibold leading-tight mb-2 text-lg">
                     {{ $comments }} Comments
                 </div>
-                <div class="flex justify-end"><a href="{{ route('comments.index') }}" class="text-gray-400 hover:text-gray-600">view all</a></div>
+                <div class="flex justify-end"><a href="{{ route('comments.index') }}"
+                        class="text-gray-400 hover:text-gray-600">view all</a></div>
             </div>
         </div>
     </div>
