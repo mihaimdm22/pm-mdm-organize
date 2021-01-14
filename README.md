@@ -21,15 +21,22 @@ First create a MySQL db with name: mdmorganize.
 
 Set up locally
 
-    git clone mihaimdm22/pm-mdm-organize
+    git clone git@github.com:mihaimdm22/pm-mdm-organize.git
     cd pm-mdm-organize
     composer install
     cp .env.example .env
     php artisan key:generate
-    php artisan jwt:generate 
     php artisan storage:link
     php artisan migrate:fresh --seed
     npm install && npm run dev
+    
+To run
+
+    php artisan serve
+    
+To test
+
+    php artisan test
     
 Login as admin: john@example.com
 Password: password
